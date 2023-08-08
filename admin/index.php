@@ -2,6 +2,7 @@
 $root_path =  $_SERVER['DOCUMENT_ROOT']."/FirstProject";
 session_start();
 require_once "function/component.php";
+require_once "function/function.php";
 require_once "controller/BaseController.php";
 
 if($component != null){
@@ -133,13 +134,10 @@ AdminLTE dashboard demo (This is only for demo purposes) -->
     if($component != null){
       echo "<script src='script/".$component.".js'></script>";
     }
-    if($_SESSION)
+    CheckNotify();
    ?>
    
-  <script>
-   
-      toastr.success('Lorem ipsum dolor sit amet, consetetur sadipscing elitr.')
-  </script>
+ 
 </body>
 
 </html>

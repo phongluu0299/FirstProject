@@ -4,6 +4,7 @@ class BASE{
     public $model = "Model";
     public $id = "ID";
 
+
     public function InsertRecord($arr_col,$arr_val){
        
         $implode_col = implode(", ",$arr_col);
@@ -47,6 +48,10 @@ class BASE{
         } else {
             return false;
         }
+    }
+    public function GetRecordByID($id_val){
+        $sql = "SELECT * ".$this->model." WHERE ".$this->id."=".$id_val;
+        return conn->query($sql);
     }
 }
 

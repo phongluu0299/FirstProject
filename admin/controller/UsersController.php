@@ -2,7 +2,7 @@
 
 class Users extends BASE{
     public $model = "users";
-    public $id = "ID"; //int
+    public $id = "UserID"; //int
     public $fullname; //string
     public $username; //string
     public $password; //string
