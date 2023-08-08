@@ -1,19 +1,13 @@
 <?php
-require "function/connect.php";
-require "function/component.php";
-$sql = "SELECT * FROM users";
-$result = $conn->query($sql);
+$root_path =  $_SERVER['DOCUMENT_ROOT']."/FirstProject";
+session_start();
+require_once "function/component.php";
+require_once "controller/BaseController.php";
 
-if ($result->num_rows > 0) {
-  // output data of each row
-  // while($row = $result->fetch_assoc()) {
-  //   echo "id: " . $row["UserID"]. " - Name: " . $row["FullName"]. " " . $row["UserName"]. "<br>";
-  // }
-} else {
-  echo "0 results";
+if($component != null){
+  include "functionsite/".$component."/".$component.".php";
 }
-
-$conn->close();
+conn->close();
 ?>
 
 <!DOCTYPE html>
@@ -78,6 +72,9 @@ $conn->close();
         </div><!-- /.container-fluid -->
       </section>
       <!-- /.content -->
+      <button type="button" class="toastrDefaultSuccess">
+            test
+      </button>
     </div>
     <!-- /.content-wrapper -->
     <footer class="main-footer">
@@ -129,7 +126,20 @@ $conn->close();
   <!-- AdminLTE for demo purposes -->
   <!-- <script src="dist/js/demo.js"></script>
 AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="plugins/sweetalert2/sweetalert2.min.js"></script>
+<script src="plugins/toastr/toastr.min.js"></script>
   <script src="dist/js/pages/dashboard.js"></script>
+  <?php 
+    if($component != null){
+      echo "<script src='script/".$component.".js'></script>";
+    }
+    if($_SESSION)
+   ?>
+   
+  <script>
+   
+      toastr.success('Lorem ipsum dolor sit amet, consetetur sadipscing elitr.')
+  </script>
 </body>
 
 </html>
