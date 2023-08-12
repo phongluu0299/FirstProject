@@ -1,0 +1,112 @@
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0">Quản lý người dùng</h1>
+            </div><!-- /.col -->
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="/firstproject/admin">Trang chủ</a></li>
+                    <li class="breadcrumb-item active">Quản lý người dùng</li>
+                </ol>
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
+
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        Tìm kiếm
+                    </div>
+                    <div class="card-body">
+
+                        <form action="" method="post">
+                            <div class="row">
+                                <div class="col-4">
+                                    <label for="">Tên người dùng</label>
+                                    <input type="text" class="form-control" placeholder="Nhập tên người dùng"
+                                        id="FullName" name="FullName">
+                                </div>
+                                <div class="col-4">
+                                    <label for="">Tên đăng nhập</label>
+                                    <input type="text" class="form-control" placeholder="Nhập tên đăng nhập"
+                                        id="UserName" name="UserName">
+                                </div>
+                                <div class="col-4">
+                                    <label for="">Email</label>
+                                    <input type="text" class="form-control" placeholder="Nhập Email" id="Email"
+                                        name="Email">
+                                </div>
+                            </div>
+                            <div class="div-buttonSearch">
+                                <button type="submit" class="btn btn-success "><i class="fa fa-search"></i> Tìm
+                                    kiếm</button>
+
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <button type="button" id="btn-add" class="btn btn-primary">Thêm mới</button>
+                    </div>
+
+                    <div class="card-body">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th width="10%">STT</th>
+                                    <th width="20%">Tên người dùng </th>
+                                    <th width="20%">Tên tài khoản</th>
+                                    <th width="15%">Số điện thoại</th>
+                                    <th width="25%">Email</th>
+                                    <th width="10%">Thao tác</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                $stt = 0;
+                                while ($item = $listdata->fetch_array()) { 
+                                    $stt++;
+                                    ?>
+
+                                    <tr>
+                                        <td><?php echo $stt ?></td>
+                                        <td><?php echo $item["FullName"] ?></td>
+                                        <td> <?php echo $item["UserName"] ?></td>
+                                        <td><?php echo $item["Phone"] ?></td>
+                                        <td> <?php echo $item["Email"] ?></td>
+                                        <td>
+                                            <button type="button" data-id="<?php echo $item["UserID"] ?>" class="btn-edit btn btn-primary">Thêm mới</button>
+                                            <a href="" data-id="<?php echo $item["UserID"] ?>" class="btn-delete btn btn-danger"><i class="fa fa-trash"></i>Xóa</a>
+                                        </td>
+                                    </tr>
+                                <?php } ?>
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="card-footer clearfix">
+                        <ul class="pagination pagination-sm m-0 float-right">
+                            <li class="page-item"><a class="page-link" href="#">«</a></li>
+                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#">»</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+<!-- /.content -->

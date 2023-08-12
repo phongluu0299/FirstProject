@@ -1,12 +1,12 @@
 <?php
-$root_path =  $_SERVER['DOCUMENT_ROOT']."/FirstProject";
+$root_path = $_SERVER['DOCUMENT_ROOT'] . "/FirstProject";
 session_start();
 require_once "function/component.php";
 require_once "function/function.php";
 require_once "controller/BaseController.php";
 
-if($component != null){
-  include "functionsite/".$component."/".$component.".php";
+if ($component != null) {
+  include "functionsite/" . $component . "/" . $component . ".php";
 }
 conn->close();
 ?>
@@ -19,10 +19,6 @@ conn->close();
 <body class="hold-transition sidebar-mini layout-fixed">
   <div class="wrapper">
 
-    <!-- Preloader -->
-    <div class="preloader flex-column justify-content-center align-items-center">
-      <img class="animation__shake" src="dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
-    </div>
 
     <!-- Navbar -->
     <nav class="main-header navbar navbar-expand navbar-white navbar-light">
@@ -41,41 +37,22 @@ conn->close();
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
       <!-- Content Header (Page header) -->
-      <div class="content-header">
-        <div class="container-fluid">
-          <div class="row mb-2">
-            <div class="col-sm-6">
-              <h1 class="m-0">Dashboard</h1>
-            </div><!-- /.col -->
-            <div class="col-sm-6">
-              <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item active">Dashboard v1</li>
-              </ol>
-            </div><!-- /.col -->
-          </div><!-- /.row -->
-        </div><!-- /.container-fluid -->
-      </div>
-      <!-- /.content-header -->
 
-      <!-- Main content -->
-      <section class="content">
-        <div class="container-fluid">
-          
-          <?php 
-          if($component == null){
-            include "view/site/home.phtml"; 
-          }else{
-            include "view/site/".$component.".phtml";
-          }
-          ?>
 
-        </div><!-- /.container-fluid -->
-      </section>
-      <!-- /.content -->
-      <button type="button" class="toastrDefaultSuccess">
-            test
-      </button>
+      <?php
+      if ($component == null) {
+        include "view/site/home/home.phtml";
+      } else {
+        include "view/site/" . $component . "/" . $component . ".phtml";
+
+        if(file_exists("view/site/" . $component . "/modal" . $component . ".phtml")){
+          include "view/site/" . $component . "/modal" . $component . ".phtml";
+        }
+      }
+      ?>
+
+
+
     </div>
     <!-- /.content-wrapper -->
     <footer class="main-footer">
@@ -103,14 +80,14 @@ conn->close();
     $.widget.bridge('uibutton', $.ui.button)
   </script>
   <!-- Bootstrap 4 -->
-  <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+
   <!-- ChartJS -->
   <script src="plugins/chart.js/Chart.min.js"></script>
   <!-- Sparkline -->
   <script src="plugins/sparklines/sparkline.js"></script>
   <!-- JQVMap -->
   <script src="plugins/jqvmap/jquery.vmap.min.js"></script>
-  <script src="plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+
   <!-- jQuery Knob Chart -->
   <script src="plugins/jquery-knob/jquery.knob.min.js"></script>
   <!-- daterangepicker -->
@@ -120,24 +97,25 @@ conn->close();
   <script src="plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
   <!-- Summernote -->
   <script src="plugins/summernote/summernote-bs4.min.js"></script>
-  <!-- overlayScrollbars -->
-  <script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+
   <!-- AdminLTE App -->
   <script src="dist/js/adminlte.js"></script>
   <!-- AdminLTE for demo purposes -->
   <!-- <script src="dist/js/demo.js"></script>
 AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="plugins/sweetalert2/sweetalert2.min.js"></script>
-<script src="plugins/toastr/toastr.min.js"></script>
-  <script src="dist/js/pages/dashboard.js"></script>
-  <?php 
-    if($component != null){
-      echo "<script src='script/".$component.".js'></script>";
-    }
-    CheckNotify();
-   ?>
-   
- 
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" ></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" ></script>
+  <script src="plugins/sweetalert2/sweetalert2.min.js"></script>
+  <script src="plugins/toastr/toastr.min.js"></script>
+
+  <?php
+  if ($component != null) {
+    echo "<script src='script/" . $component . ".js'></script>";
+  }
+  CheckNotify();
+  ?>
+
+
 </body>
 
 </html>
