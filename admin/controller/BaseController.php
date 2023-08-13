@@ -1,5 +1,6 @@
 <?php 
-require_once "function/connect.php";
+$root_path = $_SERVER['DOCUMENT_ROOT'] . "/FirstProject";
+require_once $root_path."/admin/function/connect.php";
 class BASE{
     public $model = "Model";
     public $id = "ID";
@@ -12,7 +13,7 @@ class BASE{
 
         $sql = "INSERT INTO ".$this->model." (".$implode_col.") VALUES (".$implode_val.")";
 
-        if (conn->query($sql) === TRUE) {
+        if (conn->query($sql) === TRUE && mysqli_affected_rows(conn) > 0) {
            return true;
         } else {
             return false;
@@ -31,8 +32,9 @@ class BASE{
         $impode_col_val = implode(", ",$array_col_val);
 
         $sql = "UPDATE ".$this->model." SET ".$impode_col_val." WHERE ".$this->id."=".$id_upd;
-
-        if (conn->query($sql) === TRUE) {
+        
+        
+        if (conn->query($sql) === TRUE ) {
             return true;
         } else {
             return false;
@@ -43,15 +45,22 @@ class BASE{
        
         $sql = "DELETE FROM ".$this->model." WHERE ".$this->id."=".$id_del;
 
-        if (conn->query($sql) === TRUE) {
+        if (conn->query($sql) === TRUE && mysqli_affected_rows(conn) > 0) {
             return true;
         } else {
             return false;
         }
     }
     public function GetRecordByID($id_val){
-        $sql = "SELECT * ".$this->model." WHERE ".$this->id."=".$id_val;
-        return conn->query($sql);
+        $sql = "SELECT * FROM ".$this->model." WHERE ".$this->id."=".$id_val;
+       
+        $rs = conn->query($sql);
+        $rw = null;
+        while ($item = $rs->fetch_array()) { 
+            $rw = $item;
+            break;
+        };
+        return $rw;
     }
 }
 

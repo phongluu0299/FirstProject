@@ -7,9 +7,9 @@ $email = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // collect value of input field
-     $fullname = $_GET['FullName'];
-     $username = $_GET['UserName'];
-     $email   = $_GET['Email'];
+     $fullname = $_POST['FullName'];
+     $username = $_POST['UserName'];
+     $email   = $_POST['Email'];
 
 }
 
@@ -22,4 +22,5 @@ $arr_search = array(
 
 $listuser = new Users;
 $listdata = $listuser->GetListUser($arr_search);
+
 ?>

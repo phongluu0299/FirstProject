@@ -7,14 +7,52 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="functionsite/users/adduser.php">
+            <form action="functionsite/users/adduser.php" id="form-update-user" name="form_update_user" method="post">
                 <div class="modal-body">
-                   <div class="row">
-                        
-                   </div>
+                    <input type="hidden" id="UserID" name="UserID" value="0">
+                    <div class="row">
+                        <div class="col-4">
+                            <label for="">Tên người dùng</label>
+                            <input type="text" class="form-control" placeholder="Nhập tên người dùng" id="FullName"
+                                value="" name="FullName">
+                            <small class="text-danger msg_error" id="msg_FullName"></small>
+                        </div>
+                        <div class="col-4">
+                            <label for="">Tên đăng nhập</label>
+                            <input type="text" class="form-control" placeholder="Nhập tên đăng nhập" id="UserName"
+                                value="" name="UserName">
+                            <small class="text-danger msg_error" id="msg_UserName"></small>
+                        </div>
+                        <div class="col-4">
+                            <label for="">Mật khẩu</label>
+                            <input type="password" class="form-control" placeholder="Nhập mật khẩu" id="Password"
+                                value="" name="Password">
+                            <small class="text-danger msg_error" id="msg_Password"></small>
+                        </div>
+                        <div class="col-4">
+                            <label for="">Email</label>
+                            <input type="text" value="" class="form-control" placeholder="Nhập Email" id="Email"
+                                name="Email">
+                            <small class="text-danger msg_error" id="msg_Email"></small>
+                        </div>
+                        <div class="col-4">
+                            <label for="">Điện thoại</label>
+                            <input type="text" value="" class="form-control" placeholder="Nhập số điện thoại" id="Phone"
+                                name="Phone">
+                        </div>
+                        <div class="col-4">
+                            <label for="">Giới tính</label>
+                            <select name="Gender" class="form-control" id="Gender">
+                                <option value="">- - Chọn - -</option>
+                                <option value="1">Nam</option>
+                                <option value="0">Nữ</option>
+                            </select>
+                            <small class="text-danger msg_error" id="msg_Gender"></small>
+                        </div>
+                    </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">Lưu</button>
+                    <button type="submit" id="btn-save" class="btn btn-primary">Lưu</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
                 </div>
             </form>
