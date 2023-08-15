@@ -1,6 +1,6 @@
 <?php 
-include_once $root_path."/admin/controller/UsersController.php";
 
+include_once "controller/UsersController.php";
 $fullname = "";
 $username = "";
 $email = "";

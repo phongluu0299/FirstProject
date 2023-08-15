@@ -1,7 +1,7 @@
 <?php
-$root_path = $_SERVER['DOCUMENT_ROOT'] . "/FirstProject";
-include_once $root_path . "/admin/controller/UsersController.php";
-include_once $root_path . "/admin/function/function.php";
+
+include_once "../../controller/UsersController.php";
+include_once "../../function/function.php";
 $check = false;
 $message = "";
 $user = new Users();

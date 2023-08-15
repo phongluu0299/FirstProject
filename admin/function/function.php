@@ -26,7 +26,7 @@ function CheckNotify()
 
     }
 }
-function Redirect($view)
+function Redirect($view) 
 {
     header("Location: ../../?component=".$view);
      exit();

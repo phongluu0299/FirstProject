@@ -1,5 +1,5 @@
 <?php 
-include_once $root_path."/admin/controller/BaseController.php";
+include_once "BaseController.php";
 class Users extends BASE{
     public $model = "users";
     public $id = "UserID"; //int

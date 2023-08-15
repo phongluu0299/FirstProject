@@ -1,6 +1,12 @@
 <?php 
-$root_path = $_SERVER['DOCUMENT_ROOT'] . "/FirstProject";
-require_once $root_path."/admin/function/connect.php";
+
+const conn = new mysqli("localhost", "root", "", "firstproject");
+
+// Check connection
+if (conn->connect_errno) {
+     echo "Failed to connect to MySQL: " . conn->connect_error;
+   exit();
+}
 class BASE{
     public $model = "Model";
     public $id = "ID";

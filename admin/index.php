@@ -1,16 +1,14 @@
 <?php
-$root_path = $_SERVER['DOCUMENT_ROOT'] . "/FirstProject";
-
 
 require_once "function/component.php";
 require_once "function/function.php";
-require_once "controller/BaseController.php";
+// require_once "controller/BaseController.php";
 
 if ($component != null) {
   include "functionsite/" . $component . "/" . $component . ".php";
 }
 
-conn->close();
+// conn->close();
 ?>
 
 <!DOCTYPE html>
@@ -27,7 +25,7 @@ conn->close();
       <!-- Left navbar links -->
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+          <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fa fa-bars"></i></a>
         </li>
 
       </ul>
