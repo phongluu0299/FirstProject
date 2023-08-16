@@ -1,5 +1,5 @@
 <?php
-
+include_once "function/connect.php";
 require_once "function/component.php";
 require_once "function/function.php";
 // require_once "controller/BaseController.php";
@@ -8,7 +8,7 @@ if ($component != null) {
   include "functionsite/" . $component . "/" . $component . ".php";
 }
 
-// conn->close();
+ conn->close();
 ?>
 
 <!DOCTYPE html>

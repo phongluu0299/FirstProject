@@ -1,10 +1,11 @@
 <?php 
-
+include "../../function/connect.php";
 include_once "../../controller/UsersController.php";
 include_once "../../function/function.php";
 $check = false;
 $user = new Users();
 $userid = 0;
+
 
 try{
     if ($_SERVER["REQUEST_METHOD"] == "GET") {

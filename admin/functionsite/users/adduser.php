@@ -1,5 +1,5 @@
 <?php
-
+include "../../function/connect.php";
 include_once "../../controller/UsersController.php";
 include_once "../../function/function.php";
 $check = false;

@@ -1,12 +1,6 @@
 <?php 
 
-const conn = new mysqli("localhost", "root", "", "firstproject");
 
-// Check connection
-if (conn->connect_errno) {
-     echo "Failed to connect to MySQL: " . conn->connect_error;
-   exit();
-}
 class BASE{
     public $model = "Model";
     public $id = "ID";
@@ -60,6 +54,9 @@ class BASE{
     public function GetRecordByID($id_val){
         $sql = "SELECT * FROM ".$this->model." WHERE ".$this->id."=".$id_val;
        
+        return $this->ConvertCollectionToFirst($sql);
+    }
+    public function ConvertCollectionToFirst($sql){
         $rs = conn->query($sql);
         $rw = null;
         while ($item = $rs->fetch_array()) { 
